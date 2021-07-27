@@ -1,13 +1,10 @@
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, LabelEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import  confusion_matrix
-import matplotlib.pyplot as plt
 
 # read the data
 raw_data = pd.read_csv("International students Time management data.csv")
@@ -48,11 +45,7 @@ pred_train = pipe.predict(X_train)
 # validate with X
 pred_test = pipe.predict(X_test)
 score = pipe.score(X_test, y_test)
-print("Test score:", score)
-print(pipe.score(X_train, y_train))
+print("Train score: ", pipe.score(X_train, y_train))
+print("Test score: ", score)
 
-############################################################################################
-
-cm = confusion_matrix(Y_test, pred_test)
-print(cm)
 
