@@ -2,9 +2,8 @@
 
 ## Description
 
-example pipepine with this dataset etc.
-
-add link to dataset and modify path for raw_data line 12.
+An example pipeline has been built with a dataset found on Kaggle.
+https://www.kaggle.com/xiaowenlimarketing/international-student-time-management
 
 ## Requirements
 
