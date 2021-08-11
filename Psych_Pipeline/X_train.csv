@@ -1,4 +1,4 @@
-,Number,Age,Gender,Nationality,Program,Course,English,Academic,Attendance,6,7,8,9,10,11,12,13,14,15,16,17,avg_response,label
+Index,Number,Age,Gender,Nationality,Program,Course,English,Academic,Attendance,6,7,8,9,10,11,12,13,14,15,16,17,avg_response,label
 124,125,26-30,F,Korea,PM,Business,60%~70%,>70%,S0,Disagree,Strong Disagree,Agree,Agree,Agree,Strong Disagree,Disagree,Strong Disagree,Agree,Neither,Disagree,Strong Agree,Agree,True
 47,48,21-25,M,China,PM,Business,60%~70%,60%~70%,S0,Disagree,Disagree,Agree,Neither,Strong Disagree,Strong Disagree,Disagree,Disagree,Disagree,Neither,Disagree,Disagree,Disagree,False
 45,46,21-25,M,China,PM,Business,60%~70%,50%~59%,S0,Disagree,Disagree,Agree,Agree,Disagree,Disagree,Disagree,Disagree,Disagree,Disagree,Disagree,Agree,Disagree,False
