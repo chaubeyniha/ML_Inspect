@@ -26,7 +26,16 @@ python Psych_Pipeline/pipeline_1.py
 To explore the data:
 
 ```shell
-pip install jupyter
+pip install jupyter seaborn matplotlib
 
 jupyter notebook
 ```
+
+To screen the pipeline for potential issues:
+
+```shell
+pip install git+https://github.com/schelterlabs/arguseyes.git
+python -m arguseyes time-management-decision-tree.yaml
+```
+
+**NB**: `ArgusEyes` requires Python 3.9 (Python 3.8 will raise an error during installation).

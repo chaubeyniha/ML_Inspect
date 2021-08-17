@@ -1,0 +1,15 @@
+series: time-management-decision-tree
+# artifact_storage_uri: /home/runner/work/ML_Inspect/mlruns/
+artifact_storage_uri: ../mlruns/
+
+pipeline:
+  template: classification
+  # path: /home/runner/work/ML_Inspect/ML_Inspect/Psych_Pipeline/decisiontree-pipeline.py
+  path: decisiontree-pipeline.py
+  # working_directory: /home/runner/work/ML_Inspect/ML_Inspect/Psych_Pipeline/
+  working_directory: .
+  detect_issues:
+    - constant_features
+    - label_shift
+    - covariate_shift
+    - traintest_overlap
