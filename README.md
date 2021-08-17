@@ -36,6 +36,7 @@ To screen the pipeline for potential issues:
 ```shell
 pip install git+https://github.com/schelterlabs/arguseyes.git
 python -m arguseyes time-management-decision-tree.yaml
+python -m arguseyes time-management-logistic.yaml
 ```
 
 **NB**: `ArgusEyes` requires Python 3.9 (Python 3.8 will raise an error during installation).
