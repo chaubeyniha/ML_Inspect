@@ -31,12 +31,17 @@ pip install jupyter seaborn matplotlib
 jupyter notebook
 ```
 
-To screen the pipeline for potential issues:
+## Pipeline Screening
+
+We screen the pipelines for potential issues using [`ArgusEyes`](https://github.com/schelterlabs/arguseyes). `ArgusEyes` requires Python 3.9 (Python 3.8 will raise an error during installation), so we start with a new virtual env (Note: This is not necessary if you already used Python 3.9 for the previous part).
 
 ```shell
-pip install git+https://github.com/schelterlabs/arguseyes.git
+python3.9 -m venv argusenv
+source argusenv/bin/activate
+
+pip install -U pip git+https://github.com/schelterlabs/arguseyes.git
+
+cd Example_Pipeline/
 python -m arguseyes time-management-decision-tree.yaml
 python -m arguseyes time-management-logistic.yaml
 ```
-
-**NB**: `ArgusEyes` requires Python 3.9 (Python 3.8 will raise an error during installation).
