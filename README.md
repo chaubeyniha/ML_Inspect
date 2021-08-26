@@ -39,7 +39,7 @@ We screen the pipelines for potential issues using [`ArgusEyes`](https://github.
 python3.9 -m venv argusenv
 source argusenv/bin/activate
 
-pip install -U pip git+https://github.com/schelterlabs/arguseyes.git
+pip install -U pip git+https://github.com/schelterlabs/arguseyes.git@windows
 
 cd Example_Pipeline/
 python -m arguseyes time-management-decision-tree.yaml
