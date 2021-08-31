@@ -5,7 +5,7 @@ from sklearn.preprocessing import OneHotEncoder, label_binarize
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import SGDClassifier
 
 # random seed for reproducibility
@@ -35,16 +35,16 @@ feature_encoding = ColumnTransformer([
 
 pipeline = Pipeline([
     ('features', feature_encoding),
-    ('sgdclassifier', SGDClassifier(
-        random_state=1,
-        loss='log',
-
-        # Params chosen via grid search cross-validation
-        alpha=0.1,
-        eta0=0.01,
-        penalty='elasticnet',
-    ))
+    ('sgdclassifier', SGDClassifier(loss='log', random_state=1))
 ])
+
+hyperparam_grid = {
+    "sgdclassifier__alpha" : [0.01, 0.03, 0.1, 0.3],
+    "sgdclassifier__penalty" : ["l2", "l1", "elasticnet"],
+    "sgdclassifier__eta0": [0.01, 0.03, 0.1, 0.3]
+}
+
+grid_search = GridSearchCV(pipeline, param_grid=hyperparam_grid, cv=3)
 
 train_data, test_data = train_test_split(raw_data, test_size=.3, random_state=seed)
 X_train, y_train_raw = train_data, train_data[target_column]
@@ -53,9 +53,11 @@ X_test, y_test_raw = test_data, test_data[target_column]
 y_train = np.squeeze(label_binarize(y_train_raw, classes=['Agree', 'Disagree']))
 y_test = np.squeeze(label_binarize(y_test_raw, classes=['Agree', 'Disagree']))
 
-model = pipeline.fit(X_train, y_train)
+model = grid_search.fit(X_train, y_train)
 
-# score_train = model.score(X_train, y_train)
+score_train = model.score(X_train, y_train)
 score_test = model.score(X_test, y_test)
-# print("Train score:", score_train)
+print("Train score:", score_train)
 print("Test score:", score_test)
+
+print("Params of best model:", model.best_params_)

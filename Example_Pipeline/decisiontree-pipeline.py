@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler, label_binarize
+from sklearn.preprocessing import OneHotEncoder, label_binarize
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
+from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import confusion_matrix
 
 # random seed for reproducibility
 seed = 123456789
