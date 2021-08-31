@@ -42,6 +42,16 @@ source argusenv/bin/activate
 pip install -U pip git+https://github.com/schelterlabs/arguseyes.git@windows
 
 cd Example_Pipeline/
+
+# Screen decision tree pipeline
 python -m arguseyes time-management-decision-tree.yaml
+# View fairness metrics
+mlflow ui --backend-store-uri ../mlruns
+
+# Screen logistic regression pipeline
 python -m arguseyes time-management-logistic.yaml
+# View fairness metrics
+mlflow ui --backend-store-uri ../mlruns
 ```
+
+With the `mlflow` server running, open <http://localhost:5000> in your browser to view the calculated fairness metrics.
