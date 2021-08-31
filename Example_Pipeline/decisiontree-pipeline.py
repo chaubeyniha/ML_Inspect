@@ -57,7 +57,7 @@ y_test = np.squeeze(label_binarize(y_test_raw, classes=['Agree', 'Disagree']))
 
 pipeline.fit(X_train, y_train)
 
-score_train = pipeline.score(X_train, y_train)
+# score_train = pipeline.score(X_train, y_train)
 score_test = pipeline.score(X_test, y_test)
-print("Train score:", score_train)
+# print("Train score:", score_train)
 print("Test score:", score_test)
